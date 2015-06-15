@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::get('pages/{id}', 'PagesController@show');
+Route::post('comment/store', 'CommentsController@store');
 
 /*
 Route::controllers([
@@ -29,4 +30,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 {
   Route::get('/', 'AdminHomeController@index');
   Route::resource('pages', 'PagesController');
+  Route::resource('comments', 'CommentsController');
+
 });
